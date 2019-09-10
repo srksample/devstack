@@ -7,7 +7,7 @@ python:
 
 env:
   - DEVSTACK_WORKSPACE=/tmp DOCKER_COMPOSE_VERSION=1.13.0 SHALLOW_CLONE=1 DEVSTACK='lms'
-  - DEVSTACK_WORKSPACE=/tmp DOCKER_COMPOSE_VERSION=1.13.0 SHALLOW_CLONE=1 DEVSTACK='analytics_pipeline'
+  #- DEVSTACK_WORKSPACE=/tmp DOCKER_COMPOSE_VERSION=1.13.0 SHALLOW_CLONE=1 DEVSTACK='analytics_pipeline'
 
 services:
   - docker
@@ -25,12 +25,12 @@ before_install:
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
-  - docker-compose --version
+  #- docker-compose --version
 
   - make requirements
   - make dev.clone
   - if [[ $DEVSTACK == 'lms' ]]; then make pull; fi
-  - if [[ $DEVSTACK == 'analytics_pipeline' ]]; then make dev.up.analytics_pipeline; fi
+  #- if [[ $DEVSTACK == 'analytics_pipeline' ]]; then make dev.up.analytics_pipeline; fi
 
 script:
   - "./.travis/run.sh"
