@@ -14,7 +14,7 @@ if [[ $DEVSTACK == 'lms' ]]; then
     # * tests are less flaky
     # * We have a way to test the infrastructure for testing but ignore the test results.
     # See PLAT-1712
-    # - make e2e-tests
+    make e2e-tests
     make up-marketing-detached
 fi
 
