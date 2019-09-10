@@ -7,9 +7,8 @@ if [[ $DEVSTACK == 'lms' ]]; then
     make dev.provision
     make dev.up
     sleep 60  # LMS needs like 60 seconds to come up
-    make healthchecks
+    #make healthchecks
     make lms-static
-    sleep 60
     make lms-shell
     paver test_bokchoy
     make validate-lms-volume
@@ -18,12 +17,12 @@ if [[ $DEVSTACK == 'lms' ]]; then
     # * We have a way to test the infrastructure for testing but ignore the test results.
     # See PLAT-1712
     # make e2e-tests
-    make up-marketing-detached
+    #make up-marketing-detached
 fi
 
-if [[ $DEVSTACK == 'analytics_pipeline' ]]; then
-    make dev.provision.analytics_pipeline
-    make dev.up.analytics_pipeline
-    sleep 30 # hadoop services need some time to be fully functional and out of safemode
-    make analytics-pipeline-devstack-test
-fi
+#if [[ $DEVSTACK == 'analytics_pipeline' ]]; then
+   # make dev.provision.analytics_pipeline
+    #make dev.up.analytics_pipeline
+    #sleep 30 # hadoop services need some time to be fully functional and out of safemode
+   # make analytics-pipeline-devstack-test
+#fi
