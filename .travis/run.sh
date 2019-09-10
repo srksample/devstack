@@ -10,6 +10,7 @@ if [[ $DEVSTACK == 'lms' ]]; then
     #make healthchecks
     make lms-static
     make lms-shell
+    pwd
     paver test_bokchoy
     make validate-lms-volume
     # Disable e2e-tests until either:
