@@ -9,12 +9,15 @@ if [[ $DEVSTACK == 'lms' ]]; then
     sleep 60  # LMS needs like 60 seconds to come up
     make healthchecks
     make lms-static
+    sleep 60
+    make lms-shell
+    paver test_bokchoy
     make validate-lms-volume
     # Disable e2e-tests until either:
     # * tests are less flaky
     # * We have a way to test the infrastructure for testing but ignore the test results.
     # See PLAT-1712
-    make e2e-tests
+    # make e2e-tests
     make up-marketing-detached
 fi
 
