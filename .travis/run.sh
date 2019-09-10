@@ -8,7 +8,7 @@ if [[ $DEVSTACK == 'lms' ]]; then
     make dev.up
     sleep 60  # LMS needs like 60 seconds to come up
     #make healthchecks
-    docker run -t --network=devstack_default -v ${DEVSTACK_WORKSPACE}/edx-e2e-tests:/edx-e2e-tests -v ${DEVSTACK_WORKSPACE}/edx-platform:/edx-e2e-tests/lib/edx-platform --env-file ${DEVSTACK_WORKSPACE}/edx-e2e-tests/devstack_env edxops/e2e env TERM=$(TERM) bash -c 'export lms_url=http://localhost:18000 && paver test_bokchoy'
+    docker run -t --network=devstack_default -v ${DEVSTACK_WORKSPACE}/edx-e2e-tests:/edx-e2e-tests -v ${DEVSTACK_WORKSPACE}/edx-platform:/edx-e2e-tests/lib/edx-platform --env-file ${DEVSTACK_WORKSPACE}/edx-e2e-tests/devstack_env edxops/e2e env TERM=$(TERM) bash -c 'export lms_url=http://localhost:18000'
     #make healthchecks
     #make lms-static
     #make lms-shell
